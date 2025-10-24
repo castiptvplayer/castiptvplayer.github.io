@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast IP TV Player - Android TV</title>
+    
+    <style>
+        /* Genel Sayfa Stilleri */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5; /* Hafif gri bir arka plan */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Ana Başlık */
+        header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+        }
+
+        header h1 {
+            color: #1c1e21;
+            font-size: 2.5em; /* 40px */
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.1em; /* 17.6px */
+            color: #606770;
+            margin-top: 10px;
+        }
+
+        /* Kartların Bulunduğu Ana Alan */
+        main {
+            display: flex;
+            flex-wrap: wrap; /* Küçük ekranlarda kartlar alt alta geçer */
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 960px; /* Kartların çok fazla yayılmasını engeller */
+            box-sizing: border-box; /* Padding'in genişliğe dahil olmasını sağlar */
+        }
+
+        /* Kart Linkleri (Kartın tamamının tıklanabilir olması için) */
+        .card-link {
+            text-decoration: none; /* Link alt çizgisini kaldırır */
+            color: inherit; /* Link rengini ebeveynden alır */
+            margin: 15px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Yumuşak geçiş efekti */
+        }
+
+        /* Kartın Kendisi */
+        .card {
+            background-color: #ffffff; /* Beyaz kart arka planı */
+            border-radius: 12px; /* Yumuşak köşeler */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* İnce gölge */
+            padding: 25px 35px;
+            width: 280px; /* Sabit kart genişliği */
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        /* Kartların üzerine gelince (hover) efekti */
+        .card-link:hover {
+            transform: translateY(-5px); /* Kartı hafifçe yukarı kaldırır */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); /* Gölgeliği belirginleştirir */
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.4em; /* 22.4px */
+            color: #007bff; /* Tıklanabilir olduğunu belirten mavi renk */
+        }
+        
+        /* Ekran küçüldüğünde kart genişliğini ayarlar */
+        @media (max-width: 680px) {
+            .card {
+                width: 80%; /* Daha küçük ekranlarda genişliği ayarlar */
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Cast IP TV Player</h1>
+        <p>Android TV için Hızlı ve Kullanıcı Dostu IPTV Oynatıcınız</p>
+    </header>
+
+    <main>
+        <a href="Terms.html" class="card-link">
+            <div class="card">
+                <h2>Hizmet Şartları</h2>
+            </div>
+        </a>
+
+        <a href="Privacy.html" class="card-link">
+            <div class="card">
+                <h2>Gizlilik Politikası</h2>
+            </div>
+        </a>
+
+        <a href="FAQ.html" class="card-link">
+            <div class="card">
+                <h2>S.S.S. (FAQ)</h2>
+            </div>
+        </a>
+
+        <a href="Contact.html" class="card-link">
+            <div class="card">
+                <h2>İletişim</h2>
+            </div>
+        </a>
+    </main>
+
+</body>
+</html>
