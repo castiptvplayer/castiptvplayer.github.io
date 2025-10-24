@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Cast IP TV Player</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .faq-question {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #f9f9f9;
+            padding: 0 20px;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 20px;
+        }
+
+        .faq-answer p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .footer {
+            background: #1e1e2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .faq-question {
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>❓ Frequently Asked Questions</h1>
+            <p>Find answers to common questions about Cast IP TV Player</p>
+        </div>
+
+        <div class="content">
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is Cast IP TV Player?
+                </div>
+                <div class="faq-answer">
+                    <p>Cast IP TV Player is a modern Android TV application that allows you to stream IPTV content using M3U playlists and Xtream Codes API. It provides a seamless viewing experience with support for live TV, movies, and series with an intuitive interface designed specifically for TV remote control navigation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I add my IPTV playlist?
+                </div>
+                <div class="faq-answer">
+                    <p>Adding your playlist is simple! Navigate to the "Upload M3U" section on the main screen. Enter your Xtream Codes credentials including Server URL (e.g., http://example.com:8080), Username, and Password. The app will automatically generate and load your complete playlist with all available channels, movies, and series.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What video formats and protocols are supported?
+                </div>
+                <div class="faq-answer">
+                    <p>Cast IP TV Player supports a wide range of formats including M3U playlists, Xtream Codes API, and various video formats such as MP4, MKV, AVI, TS, and FLV. It also supports streaming protocols including HLS (HTTP Live Streaming), RTSP, RTMP, and HTTP progressive download for maximum compatibility.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I customize the app's appearance?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Cast IP TV Player offers extensive customization options. Navigate to Settings → Background Management to choose from 9 beautiful background themes. You can also change the app language, adjust playback settings, and customize the viewing experience. All changes are applied instantly across all screens.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I reorder or organize my channels?
+                </div>
+                <div class="faq-answer">
+                    <p>While watching any channel, press the Menu button on your remote to open the channel reorder panel. Select a channel by pressing OK, then navigate to your desired position and press OK again to swap the channels. This allows you to organize your favorite channels for quick access. Note: You cannot reorder the currently playing channel.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does the app support multiple languages?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Cast IP TV Player supports multiple languages including English, Turkish (Türkçe), German (Deutsch), and Spanish (Español). You can easily change the language in the Settings menu. The entire interface, including menus, buttons, and messages, will be displayed in your selected language.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is my personal data and credentials secure?
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Security and privacy are our top priorities. All your credentials, playlist data, and viewing history are stored locally on your device using Android's encrypted storage system. We never collect, transmit, or share your personal information with external servers or third parties. Your data stays on your device and is completely under your control.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What devices and platforms are supported?
+                </div>
+                <div class="faq-answer">
+                    <p>Cast IP TV Player is specifically designed for Android TV devices including Smart TVs (Samsung, LG, Sony, etc.), Android TV boxes, Amazon Fire TV and Fire TV Stick, NVIDIA Shield TV, Mi Box, and other Android TV-compatible devices. The app requires Android 5.0 (Lollipop) or higher and is optimized for TV remote control navigation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How can I view my watching history?
+                </div>
+                <div class="faq-answer">
+                    <p>Cast IP TV Player automatically tracks your viewing history. Simply navigate to the "Viewing History" section from the main menu to see all the content you've recently watched. You can filter by category (Live TV, Movies, Series) and quickly resume watching from where you left off. You can also clear your history at any time from the settings.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I control playback and change audio/subtitle tracks?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! During playback, you have full control over your viewing experience. Use the remote control to play/pause, seek forward/backward, and adjust the timeline. Press the Menu button to access audio track selection and subtitle options. The player supports multiple audio tracks and subtitle languages when available in the stream.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I report bugs or request new features?
+                </div>
+                <div class="faq-answer">
+                    <p>We value your feedback! Please visit our Contact Us page to submit bug reports, feature requests, or general feedback. Provide as much detail as possible including your device model and a description of the issue. We actively monitor all submissions and continuously improve the app based on user suggestions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is there a subscription fee for the app?
+                </div>
+                <div class="faq-answer">
+                    <p>Cast IP TV Player is completely free to download and use with no subscription fees, in-app purchases, or hidden costs. However, you need your own IPTV service subscription from a provider to access content. We are a player application only and do not provide, sell, or distribute IPTV services or content.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What should I do if a channel won't play or buffers constantly?
+                </div>
+                <div class="faq-answer">
+                    <p>Buffering issues are usually related to your internet connection or IPTV service quality. First, check your internet speed (we recommend at least 10 Mbps for HD content). Try refreshing your playlist from the Upload section. If the problem persists, contact your IPTV service provider as the issue may be with their servers or stream quality.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I use multiple playlists or switch between providers?
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! You can add multiple playlists from different IPTV providers. Each playlist is saved separately and you can easily switch between them from the Upload section. Simply select the playlist you want to use and it will load all associated channels, movies, and series. You can also refresh or delete playlists as needed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Cast IP TV Player. All rights reserved.</p>
+            <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a> | <a href="contact.html">Contact Us</a></p>
+        </div>
+    </div>
+
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+
+                    // Close all other answers
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    });
+
+                    // Toggle current answer
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+
+            // Open first FAQ by default
+            if (faqQuestions.length > 0) {
+                faqQuestions[0].click();
+            }
+        });
+    </script>
+</body>
+</html>
