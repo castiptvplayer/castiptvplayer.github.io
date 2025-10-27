@@ -3,19 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cast IP TV Player</title>
+    <title>Cast IP TV Player - Modern Dark Theme</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        /* CSS Değişkenleri (Renk Paleti) */
+        :root {
+            --bg-dark-primary: #121212;    /* Ana arka plan */
+            --bg-dark-secondary: #1e1e1e; /* Kart arka planı */
+            --bg-dark-tertiary: #2a2a2a; /* Uyarı arka planı */
+            --text-light-primary: #e0e0e0;  /* Ana metin */
+            --text-light-secondary: #b0b0b0;/* İkincil metin */
+            --text-white: #ffffff;         /* Başlıklar */
+            --border-color: #333333;       /* Ayırıcılar */
+            --accent-color: #00aaff;       /* Vurgu (Linkler) */
+            --warning-color: #ffc107;      /* Uyarı metni */
+            --shadow-color: rgba(0, 0, 0, 0.25);
+            --card-border-radius: 12px;
+        }
+
+        /* Temel Sıfırlama */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark-primary);
+            color: var(--text-light-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1200px; /* Daha modern ve geniş bir görünüm için */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Başlık Alanı */
+        .header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        .logo img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+
+        /* Sitede kalan Yasal Uyarı */
+        .disclaimer {
+            background-color: var(--bg-dark-tertiary);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 25px auto;
+            text-align: left;
+            box-shadow: 0 4px 10px var(--shadow-color);
+        }
+
+        .disclaimer p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .disclaimer strong {
+            color: var(--warning-color);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* Modern Kart Izgarası (Grid Layout) */
+        .card-grid {
+            display: grid;
+            /* Cihaz genişliğine göre 1, 2 veya 3 sütunlu esnek yapı */
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            background-color: var(--bg-dark-secondary);
+            border-radius: var(--card-border-radius);
+            box-shadow: 0 4px 15px var(--shadow-color);
+            overflow: hidden; /* Resmin köşelerini yuvarlatmak için */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; /* İçeriğin düzgün hizalanması için */
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Hafifçe yükselme efekti */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Resimlerin eşit boyutta görünmesi için */
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1; /* Kartların alt kısımlarını eşitler */
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--text-light-secondary);
+        }
+
+        /* Navigasyon & Footer */
+        .nav-buttons, .footer {
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+
+        .nav-btn {
+            font-size: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+            font-weight: 700;
+        }
+
+        .nav-btn:hover {
+            color: var(--text-white);
+            text-decoration: underline;
+        }
+
+        .footer p {
+            color: #777; /* Telif hakkı yazısı için daha soluk renk */
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
+    
     <div class="container">
         <div class="header">
             <div class="logo">
                 <img src="https://castiptvplayer.github.io/images/logo.png" alt="Cast IP TV Player Logo">
             </div>
             <h1>CAST IP TV PLAYER</h1>
+            
             <div class="disclaimer">
                 <p><strong>IMPORTANT DISCLAIMER: PLAYER ONLY</strong></p>
                 <p>Please note that "Cast IP TV Player" does not contain or provide any TV channels, movies, series, streams, or playlists. This application is a media player interface designed for users to load their own content, such as M3U lists, Xtream Codes accounts, or local files. The user is solely responsible for sourcing and ensuring the legality of the content. The app is empty upon installation; all content must be added by the user.</p>
@@ -24,55 +187,55 @@
 
         <div class="card-grid">
             <div class="card">
-                <img src="images/1.png" alt="Image 1">
+                <img src="images/1.png" alt="Modern Home Screen">
                 <div class="card-content">
                     <h2>Modern and Intuitive Home Screen</h2>
                     <p>Meet our modern and intuitive home screen. Instantly access the content you're looking for with separated categories on the main page. Let your TV enjoyment continue uninterrupted with its sleek design. You can automatically see the latest content added to your list.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/2.png" alt="Image 2">
+                <img src="images/2.png" alt="Advanced Category System">
                 <div class="card-content">
                     <h2>Advanced Category System</h2>
                     <p>Don't get lost in your VOD (Video on Demand) archive. Filter all your content in seconds—from "Romantic" to "Horror," "Action" to "Period Dramas"—with our advanced category system. Episode selection has never been this easy.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/3.png" alt="Image 3">
+                <img src="images/3.png" alt="Smart History Feature">
                 <div class="card-content">
                     <h2>Smart History Feature</h2>
                     <p>Never forget where you left off with Cast IP TV Player. The smart "History" feature remembers the movies and shows you've started watching. Continue right from where you left off with a single click.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/4.png" alt="Image 4">
+                <img src="images/4.png" alt="Channel Sorting">
                 <div class="card-content">
                     <h2>Channel Sorting</h2>
                     <p>With "Channel Sorting" in CAST IP TV Player, you have complete control over your live TV list. Put your favorite channels in any order you want, create your own perfect TV guide, and stop navigating through chaos.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/5.png" alt="Image 5">
+                <img src="images/5.png" alt="Personalization and Parental Control">
                 <div class="card-content">
                     <h2>Personalization and Parental Control</h2>
                     <p>Personalize your app with Cast IP TV Player! Choose the theme that suits your taste with "Background Management" and refresh the app's look. Plus, ensure a safe viewing environment for your family with "Parental Control."</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/6.png" alt="Image 6">
+                <img src="images/6.png" alt="Multi-Language Support">
                 <div class="card-content">
                     <h2>Multi-Language Support</h2>
                     <p>Cast IP TV Player speaks your language. Use the app in your native tongue with multi-language support, including Turkish, English, German, and Spanish, for the most comfortable experience.</p>
                 </div>
             </div>
             <div class="card">
-                <img src="images/7.png" alt="Image 7">
+                <img src="images/7.png" alt="Easy Playlist Management">
                 <div class="card-content">
                     <h2>Easy Playlist Management</h2>
                     <p>Managing your playlists is child's play. Upload your list in seconds, whether from a URL or a local file. All your playlists are in one place with this powerful system that effortlessly manages even countless streams.</p>
                 </div>
             </div>
-        </div>
+            </div>
 
         <div class="nav-buttons">
             <a href="https://castiptvplayer.github.io/faq.html" class="nav-btn">FAQ</a>
@@ -85,5 +248,26 @@
             <p>&copy; 2025 Cast IP TV Player. All rights reserved.</p>
         </div>
     </div>
-</body>
+
+    <script>
+        // Sayfa yüklendiğinde SweetAlert'i göster
+        window.onload = function() {
+            Swal.fire({
+                title: '<strong>IMPORTANT DISCLAIMER: PLAYER ONLY</strong>',
+                icon: 'warning',
+                // Uyarı metnini HTML olarak ekliyoruz
+                html:
+                    '<p style="text-align: left; color: var(--text-light-primary);">Please note that "Cast IP TV Player" does not contain or provide any TV channels, movies, series, streams, or playlists. This application is a media player interface designed for users to load their own content, such as M3U lists, Xtream Codes accounts, or local files.</p>' +
+                    '<p style="text-align: left; color: var(--text-light-primary); margin-top: 10px;">The user is solely responsible for sourcing and ensuring the legality of the content. The app is empty upon installation; all content must be added by the user.</p>',
+                
+                // Dark tema için SweetAlert ayarları
+                background: 'var(--bg-dark-tertiary)', // Koyu arka plan
+                color: 'var(--text-light-primary)', // Koyu tema metin rengi
+                
+                confirmButtonText: 'Okudum, Anladım',
+                confirmButtonColor: '#007bff'
+            });
+        };
+    </script>
+    </body>
 </html>
