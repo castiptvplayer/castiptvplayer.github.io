@@ -228,7 +228,8 @@
 
                     <div class="form-group">
                         <select id="subject" name="subject" class="form-control" required>
-                            <option value="" disabled selected hidden></option> <option value="technical">Technical Support</option>
+                            <option value="" disabled selected hidden></option> 
+                            <option value="technical">Technical Support</option>
                             <option value="bug">Bug Report</option>
                             <option value="feature">Feature Request</option>
                             <option value="account">Account Issue</option>
@@ -264,5 +265,50 @@
             <p>&copy; 2025 Cast IP TV Player. All rights reserved.</p>
         </footer>
     </div>
-</body>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        (function() {
+            // Sizin Public Key'iniz:
+            emailjs.init({
+              publicKey: "GdrekV6TBLUagQlxb",
+            });
+        })();
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Formun normal gönderimini engelle
+
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Gönderiliyor...';
+
+                // Sizin Service ID'niz:
+                const serviceID = 'service_9nvtyls';
+                
+                // EmailJS panelinden (Email Templates) aldığınız Şablon ID'nizi BURAYA GİRİN:
+                const templateID = 'YOUR_TEMPLATE_ID'; // <-- BU KISMI DOLDURUN
+
+                // Formu gönder
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        // Başarılı olursa:
+                        submitBtn.textContent = 'Başarıyla Gönderildi!';
+                        alert('Mesaj başarıyla gönderildi!');
+                        this.reset(); // Formu sıfırla
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                    }, (err) => {
+                        // Hata olursa:
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        alert('Mesaj gönderilemedi. Hata: ' + JSON.stringify(err));
+                    });
+            });
+        }
+    </script>
+    </body>
 </html>
