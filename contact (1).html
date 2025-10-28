@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cast IP TV Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Değişkenleri - Marka renginizi buradan değiştirin */
+        :root {
+            --primary-color: #007bff; /* Etkileşimler için varsayılan mavi. Kendi renginizle değiştirin. */
+            --body-bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --label-color: #666;
+            --border-color: #ddd;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Temel Sıfırlama ve Gövde */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--body-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Başlık Alanı */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header .logo img {
+            max-width: 100px; /* Logo boyutunu ihtiyaca göre ayarlayın */
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: var(--label-color);
+        }
+
+        /* Ana Kart */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Modern Kayan Etiketli Form Grupları */
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: transparent;
+            position: relative;
+            z-index: 1; /* Etiketin üstünde olması için */
+        }
+        
+        /* Select (dropdown) menü için özel stil */
+        select.form-control {
+            appearance: none; /* Tarayıcı varsayılan okunu kaldır */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23666666%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 10px;
+            padding-right: 40px; /* Ok için yer bırak */
+        }
+
+        /* Textarea için özel yükseklik */
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            font-size: 1rem;
+            color: var(--label-color);
+            padding: 0 5px;
+            background-color: var(--card-bg); /* Arka planı kesmemesi için */
+            transition: all 0.2s ease;
+            pointer-events: none; /* Etiketin tıklanmasını engelle */
+            z-index: 2; /* Giriş alanının üstünde */
+        }
+
+        /* Kayan etiket animasyonu */
+        .form-control:focus ~ label,
+        .form-control:not(:placeholder-shown) ~ label {
+            top: -10px; /* Üste kaydır */
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+        
+        /* Select için :valid kullanarak boş olmayan durumu kontrol et */
+         .form-control:valid ~ label {
+             top: -10px;
+             font-size: 0.85rem;
+         }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+        }
+
+        /* Gönder Düğmesi */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3; /* Primary color'un biraz koyusu */
+        }
+
+        .submit-btn:active {
+            transform: scale(0.99);
+        }
+
+        /* Navigasyon ve Alt Bilgi */
+        .nav-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .nav-btn {
+            font-size: 0.9rem;
+            color: var(--label-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Mobil uyumluluk */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px auto;
+            }
+            .card {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <img src="https://castiptvplayer.github.io/images/logo.png" alt="Cast IP TV Player Logo">
+            </div>
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you!</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <form id="contactForm">
+                    
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" class="form-control" required placeholder=" ">
+                        <label for="name">Your Name *</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" required placeholder=" ">
+                        <label for="email">Email Address *</label>
+                    </div>
+
+                    <div class="form-group">
+                        <select id="subject" name="subject" class="form-control" required>
+                            <option value="" disabled selected hidden></option> 
+                            <option value="technical">Technical Support</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="account">Account Issue</option>
+                            <option value="feedback">General Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label for="subject">Subject *</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="device" name="device" class="form-control" placeholder=" ">
+                        <label for="device">Device Information (Optional)</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" name="message" class="form-control" required placeholder=" "></textarea>
+                        <label for="message">Message *</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </main>
+
+        <nav class="nav-buttons">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="faq.html" class="nav-btn">FAQ</a>
+            <a href="terms.html" class="nav-btn">Terms of Service</a>
+            <a href="privacy.html" class="nav-btn">Privacy Policy</a>
+        </nav>
+
+        <footer class="footer">
+            <p>&copy; 2025 Cast IP TV Player. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        (function() {
+            // Sizin Public Key'iniz:
+            emailjs.init({
+              publicKey: "GdrekV6TBLUagQlxb",
+            });
+        })();
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Formun normal gönderimini engelle
+
+                const submitBtn = this.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                // Sizin Service ID'niz:
+                const serviceID = 'service_9nvtyls';
+                
+                // EmailJS panelinden (Email Templates) aldığınız Şablon ID'nizi BURAYA GİRİN:
+                const templateID = 'template_l6j3809'; // <-- BU KISMI DOLDURUN
+
+                // Formu gönder
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        // Başarılı olursa:
+                        submitBtn.textContent = 'Sent Successfully!';
+                        alert('Message sent successfully!');
+                        this.reset(); // Formu sıfırla
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Send Message';
+                    }, (err) => {
+                        // Hata olursa:
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        alert('Failed to send message. Error: ' + JSON.stringify(err));
+                    });
+            });
+        }
+    </script>
+    </body>
+</html>
